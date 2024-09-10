@@ -32,19 +32,13 @@ start_game:
     
 
     call print_names
-    mov si, msg
-    call print_string
+
     mov ah, 0x00           ; Llamada para esperar una tecla
     int 0x16
     
     ; Procesar teclas de flechas
     jmp process_arrows
-    
 
-
-    ;cmp al, 0             ; Comprobar si es tecla especial (flecha)
-    ;je process_arrows
-    ;jmp start_game
 
     
 hang:
@@ -196,8 +190,6 @@ randomize_positions:
 
 exit:
     ; Detener ejecución
-    mov si, msg
-    call print_string
     cli
     hlt
 
@@ -206,10 +198,10 @@ exit:
 ; Datos de los mensajes
 welcome_msg db 'Bienvenido al juego "My name". Presiona y para empezar.', 0
 game_msg db 'Iniciando el juego...', 0
-msg db 'LLEGO', 0
 
 
-names db 'Kevin Sergio', 0
+
+
 x_pos1 db 10              ; Posición inicial X para 'Juan'
 y_pos1 db 10              ; Posición inicial Y para 'Juan'
 x_pos2 db 40              ; Posición inicial X para 'Pedro'
